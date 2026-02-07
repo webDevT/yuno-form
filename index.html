@@ -267,10 +267,12 @@
             font-weight: 500;
             color: #6b6b6b;
         }
+        .payment-form-header,
         #root {
             opacity: 0;
             transition: opacity 0.5s ease;
         }
+        body.payment-form-ready .payment-form-header,
         body.payment-form-ready #root {
             opacity: 1;
         }
@@ -729,7 +731,7 @@
             <div class="container">
 
                 <div class="custom-payment-wrapper">
-
+                    <div class="payment-form-header">
                     <header>
                         <div>
                             <a class="header-back-button-link" href="">
@@ -764,6 +766,7 @@
                             <span class="product-summary__amount">$94.99</span>
                             <span class="product-summary__interval">per year</span>
                         </div>
+                    </div>
                     </div>
 
                     <div id="root"></div>
