@@ -239,7 +239,7 @@
         /* Product summary — subscribe title + price */
         .product-summary {
             text-align: center;
-            padding: 0 0 24px;
+            padding: 0 0 10px;
         }
         .product-summary__title {
             color: #6b6b6b;
@@ -276,7 +276,7 @@
         body.payment-form-ready #root {
             opacity: 1;
         }
-        /* Subscribe button */
+
         #root button[type="submit"],
         #root .Yuno-button {
             height: 55px !important;
@@ -335,6 +335,42 @@
         .gpay-button.black.pay.en {
             background-size: 130px !important;
         }
+        .header-back-button {
+                display: flex;
+            }
+            .header-back-button h1 {
+                color: #1A1A1AE6;
+                font-size: 14px;
+                font-weight: 600;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .header-back-button-content {
+                display: flex;
+            }
+            .header-back-button-link {
+                text-decoration: none;
+                margin-bottom: 15px;
+                display: block;
+            }
+            .header-back-button-icon {
+                opacity: 0.6;
+            }
+            .header-back-button-icon-wrapper {
+                box-shadow: 0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+                width: 28px;
+                height: 28px;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+            .header-back-button-icon-wrapper svg {
+                width: 12px;
+                fill: #1A1A1AB2 !important;
+            }
         @media (max-width: 450px) {
             .custom-payment-wrapper {
                 width: 360px;
@@ -347,27 +383,47 @@
                 max-width: 100%;
             }
         }
-        @media (max-height: 700px) {
+        @media (max-height: 750px) {
             .css-rhlrep {
                 margin-bottom: 0 !important;
             }
             #root .payment-method-label {
-                margin-top: 15px !important;
-                margin-bottom: 5px !important;
+                margin-top: 10px !important;
+                margin-bottom: 10px !important;
             }
+            .header-back-button-link {
+                margin-bottom: 15px !important;
+            }
+            .product-summary {
+                padding-bottom: 10px !important;
+            }
+            .product-summary__price {
+                padding-top: 0;
+            }
+            .custom-payment-wrapper {
+                margin-top: 15px !important;
+            } 
         }
-        @media (max-height: 6500px) {
+        @media (max-height: 650px) {
             
             #root .payment-method-label {
                 margin-top: 10px !important;
                 margin-bottom: 3px !important;
             }
-        }
-        @media (max-height: 600px) {
-            .get-vip .header {
-                display: block;
+            .header-back-button-link {
+                margin-bottom: 5px !important;
             }
+            .product-summary {
+                padding-bottom: 5px !important;
+            }
+            .product-summary__price {
+                padding-top: 0;
+            }
+            .custom-payment-wrapper {
+                margin-top: 10px !important;
+            } 
         }
+
      
         
     </style>
@@ -608,7 +664,7 @@
                 var form = root.querySelector('form');
                 var emailBlock = root.querySelector('.yuno-grid-email');
                 if (!form || !emailBlock) return false;
-                if (emailBlock.previousElementSibling === null) return true; // already first
+                if (emailBlock.previousElementSibling === null) return true; 
                 form.insertBefore(emailBlock, form.firstChild);
                 return true;
             }
@@ -690,40 +746,7 @@
     <div class="get-vip payment-complete">
         
         <style>
-            .header-back-button {
-                display: flex;
-            }
-            .header-back-button h1 {
-                color: #1A1A1AE6;
-                font-size: 14px;
-                font-weight: 600;
-            }
-            .header-back-button-content {
-                display: flex;
-            }
-            .header-back-button-link {
-                text-decoration: none;
-                margin-bottom: 30px;
-                display: block;
-            }
-            .header-back-button-icon {
-                opacity: 0.6;
-            }
-            .header-back-button-icon-wrapper {
-                box-shadow: 0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
-                width: 28px;
-                height: 28px;
-                border-radius: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-            .header-back-button-icon-wrapper svg {
-                width: 12px;
-                fill: #1A1A1AB2 !important;
-            }
+           
         </style>
        
 
