@@ -236,7 +236,37 @@
             margin-right: auto;
             margin-top: 20px;
         }
-     
+        /* Product summary — subscribe title + price */
+        .product-summary {
+            text-align: center;
+            padding: 0 0 24px;
+        }
+        .product-summary__title {
+            color: #6b6b6b;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .product-summary__price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 5px;
+        }
+        .product-summary__amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        .product-summary__interval {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b6b6b;
+        }
         #root {
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -373,7 +403,7 @@
 
         window.addEventListener('yuno-sdk-ready', async () => {
             const yuno = await Yuno.initialize("sandbox_gAAAAABpaRd9kteusFRHZcH9KgGZA1surYPvIczr_DM5HN9eo6DNqBUbw6vIgrAFD-PTOasBNwjSmZcmQzyFJlgHYEYPwrsklAcqCA0b0YYMIFMZXWL2Mb9itJegCbHrAENFIbH-YKKNlFomgeq4-z0w2zsEZJQY-QY801Gj4LGvDV9jOZHWokmjwIpwJtr7hMEYmWoZG6X9o-p8eBjfmKJBQ-9zSN9EkQrzTsDUQA-QMdyWPGBefXJyGOa6pw7-L4IjrrsD6zgC");
-            const checkoutSession = "3efe0a54-f19d-467f-b6a7-0b8cd4de0cec";
+            const checkoutSession = "60578e8b-8595-4b99-9c84-88bd46e074c9";
             const vaulted_token = "3fba9910-e250-44cd-9543-c62bcbe228c5";
 
             yuno.startCheckout({
@@ -656,29 +686,86 @@
    
     </div>
     <div class="get-vip payment-complete">
-        <div class="header">
-            <div class="container">
-                <a class="header-back-arrow" onclick="window.Telegram.WebApp.close();" href="javascript:void(0);" aria-label="Back">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <div class="logo">
-
-                    <a href="https://flirtu.io/">
-
-                        <h1>Romantica Labs</h1>
-
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        
+        <style>
+            .header-back-button {
+                display: flex;
+            }
+            .header-back-button h1 {
+                color: #1A1A1AE6;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .header-back-button-content {
+                display: flex;
+            }
+            .header-back-button-link {
+                text-decoration: none;
+                margin-bottom: 30px;
+                display: block;
+            }
+            .header-back-button-icon {
+                opacity: 0.6;
+            }
+            .header-back-button-icon-wrapper {
+                box-shadow: 0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+                width: 28px;
+                height: 28px;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+            .header-back-button-icon-wrapper svg {
+                width: 12px;
+                fill: #1A1A1AB2 !important;
+            }
+        </style>
+       
 
         <div class="content premium-wrapper success-wrapper">
             <div class="container">
 
                 <div class="custom-payment-wrapper">
+
+                    <header>
+                        <div>
+                            <a class="header-back-button-link" href="">
+                                <div>
+                                    <div class="header-back-button">
+                                        <div class="header-back-button-icon">
+                                            <svg width="12" height="12" viewBox="0 0 16 16">
+                                                <path d="M3.417 7H15a1 1 0 0 1 0 2H3.417l4.591 4.591a1 1 0 0 1-1.415 1.416l-6.3-6.3a1 1 0 0 1 0-1.414l6.3-6.3A1 1 0 0 1 8.008 2.41z" fill-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                     
+                                        <div>
+                                            <div class="header-back-button-content">
+                                                <div class="header-back-button-icon-wrapper">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9977 8.19089C15.6092 7.64898 16.0002 6.87952 16.0002 6V5.90012C16.0002 5.58415 15.9687 5.26896 15.9061 4.95925L15.2757 1.83964L15.2729 1.82792C15.1493 1.3036 14.9237 0.814761 14.4989 0.46826C14.0702 0.118638 13.5447 2.32458e-05 13 2.20537e-05L3 0C2.45536 0 1.92982 0.118541 1.50106 0.46812C1.0761 0.814602 0.850422 1.30347 0.726786 1.8279L0.72402 1.83963L0.0936206 4.95927C0.0310375 5.26897 -0.000488281 5.58414 -0.000488281 5.90011V6C-0.000488281 6.87964 0.390631 7.64918 1.00228 8.19109C1.00077 8.21053 1 8.23017 1 8.25V13.75C1 14.9926 2.00736 16 3.25 16H12.75C13.9926 16 15 14.9926 15 13.75V8.25C15 8.2301 14.9992 8.21039 14.9977 8.19089ZM1.5639 5.25637L2.18938 2.16112C2.27008 1.82536 2.37436 1.69148 2.44893 1.63068C2.5205 1.57233 2.66423 1.5 3 1.5L5.13914 1.5L4.91916 5.83281V5.85184C4.91916 6.75985 4.16621 7.5185 3.20933 7.5185C2.20733 7.5185 1.49951 6.78036 1.49951 6V5.90011C1.49951 5.68392 1.52108 5.46828 1.5639 5.25637ZM6.41924 5.86925L6.64107 1.50001L9.35867 1.50001L9.5805 5.86926C9.5716 6.81148 8.84083 7.51853 7.99982 7.51853C7.15886 7.51853 6.42814 6.81151 6.41924 5.86925ZM11.0806 5.83283L10.8606 1.50002L13 1.50002C13.3356 1.50002 13.4793 1.57235 13.5508 1.6307C13.6254 1.6915 13.7297 1.8254 13.8103 2.16111L14.4358 5.25637C14.4787 5.46827 14.5002 5.68393 14.5002 5.90012V6C14.5002 6.78037 13.7924 7.51853 12.7904 7.51853C11.8335 7.51853 11.0806 6.75987 11.0806 5.85186V5.83283ZM12.7904 9.01853C11.8162 9.01853 10.9371 8.58803 10.3463 7.90493C9.78443 8.58417 8.94686 9.01853 7.99982 9.01853C7.05278 9.01853 6.21526 8.58417 5.65344 7.90494C5.06261 8.58802 4.18353 9.0185 3.20933 9.0185C2.96731 9.0185 2.72967 8.99264 2.5 8.94337V11.5H13.5V8.94334C13.2703 8.99264 13.0325 9.01853 12.7904 9.01853ZM2.5 13.75V13H13.5V13.75C13.5 14.1642 13.1642 14.5 12.75 14.5H3.25C2.83579 14.5 2.5 14.1642 2.5 13.75Z" fill=""></path>
+                                                    </svg>
+                                                </div>
+                                                <h1>Telegram Dating</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </header>
+
+
+                    <div class="product-summary">
+                        <div class="product-summary__title">Subscribe to 👑 VIP</div>
+                        <div class="product-summary__price">
+                            <span class="product-summary__amount">$94.99</span>
+                            <span class="product-summary__interval">per year</span>
+                        </div>
+                    </div>
+
                     <div id="root"></div>
                     <p class="custom-payment-text">
 
@@ -691,18 +778,6 @@
         </div>
 
     </div>
-    <!-- ----------start header----------- -->
-
-
-
-
-    <!-- <div class="next-button-wrapper">
-        <div class="button button--blue">
-            <a onclick="window.Telegram.WebApp.close();" href="javascript://">Return to the site</a>
-           
-
-        </div>
-    </div> -->
 
     <!-- --------------end content----------- -->
 </body>
