@@ -1,0 +1,685 @@
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RomanticaLabs</title>
+    <meta name="description" content="RomanticaLabs — safe local dating on Telegram. Connect with people nearby, flirt, and find serious relationships in a secure and anonymous environment. No registration needed and completely free!">
+    <meta name="keywords" content="dating, local dating, Telegram dating, safe dating, anonymous dating, no registration dating, dating chat, RomanticaLabs">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://du30cvw1mirjj.cloudfront.net/static/latinoheart/css/style.min.css">
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <!--    <script src="https://pay.google.com/gp/p/js/pay.js"></script>-->
+    <style>
+        .get-vip .header .container {
+            position: relative;
+        }
+        .get-vip .header .header-back-arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .header-back-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+        }
+        .header-back-arrow svg {
+            display: block;
+        }
+        .css-1hx1alg {
+             display: none;;
+        }
+        .css-1iqpic4 {
+            display: none;
+        }
+       
+
+      
+        .Yuno-modal-body__content {
+            color: red;
+        }
+  
+        .yuno-payment-list__container,
+        .yuno-payment-list__radiogroup,
+        .Yuno-more-indicator__sticky,
+        .Yuno-more-indicator__container,
+        .Yuno-radio-button__container {
+            display: none !important;
+        }
+
+        #root .payment-method-label,
+        #root .card-information-label,
+        #root .Yuno-input__label {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #1A1A1AB2 !important;
+            font-weight: 500 !important;
+            position: static !important;
+        }
+        #root .payment-method-label {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1A1A1AE6 !important;
+        }
+        #root .card-information-label {
+            margin: 16px 0 8px;
+            margin-bottom: 0;
+            margin: 0;
+            line-height: 1.8;
+        }
+     
+        #root .Yuno-external-button__subtitle {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            width: 100% !important;
+            color: #6b6b6b !important;
+        }
+        #root .Yuno-external-button__subtitle::before,
+        #root .Yuno-external-button__subtitle::after {
+            content: '';
+            flex: 1;
+            min-width: 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        /* Google Pay button */
+        #root [class*="google-pay"],
+        #root [class*="GooglePay"],
+        #root [class*="gpay"],
+        #root [aria-label*="Google Pay"] {
+            height: 55px !important;
+            min-height: 55px !important;
+            font-size: 15px !important;
+            border-radius: 8px !important;
+        }
+        #root iframe[title*="Google Pay"] {
+            height: 55px !important;
+            border-radius: 2px !important;
+        }
+        .css-rtde4j {
+            margin-top: -17px;
+        }
+
+        .spinner-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .8);
+            display: none;
+            z-index: 9999
+        }
+
+        .spinner-wrapper.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .spinner-wrapper .spinner-loading-text {
+            color: #fff;
+            font-size: 15px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        .darksoul-layout {
+            margin: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100vh
+        }
+
+        .darksoul-grid {
+            margin: auto;
+            width: 80px;
+            height: 80px;
+            display: grid;
+            gap: 0px;
+            grid-template-columns: auto auto;
+            -webkit-animation: rotate 2s linear 0s infinite;
+            animation: rotate 2s linear 0s infinite
+        }
+
+        .item1 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #e64444
+        }
+
+        .item2 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #fff
+        }
+
+        .item3 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #fff
+        }
+
+        .item4 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #e64444
+        }
+
+        @-webkit-keyframes rotate {
+            0% {
+                rotate: 0deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+            50% {
+                rotate: 100deg;
+                -webkit-transform: scale(0.4);
+                transform: scale(0.4)
+            }
+            100% {
+                rotate: 360deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                rotate: 0deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+            50% {
+                rotate: 100deg;
+                -webkit-transform: scale(0.4);
+                transform: scale(0.4)
+            }
+            100% {
+                rotate: 360deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+        }
+
+        .darksoul-loader-h {
+            margin: auto;
+            margin-left: 5px
+        }
+        .custom-payment-wrapper {
+            width: 380px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+     
+        #root {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        body.payment-form-ready #root {
+            opacity: 1;
+        }
+
+        #root button[type="submit"],
+        #root .Yuno-button {
+            height: 55px !important;
+            min-height: 55px !important;
+            background-color: rgb(0, 116, 212) !important;
+            color: rgb(255, 255, 255) !important;
+            margin-top: 20px !important;
+        }
+        .custom-payment-text {
+            width: 100%;
+            color: #1A1A1AB2;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .custom-payment-text.visible {
+            opacity: 1;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .css-1lcp52 {
+            padding: 0 !important;
+            display: block !important;
+            height: auto !important;
+            border: none !important;
+        }
+        .css-1qmtg5w {
+            border: none !important;
+        }
+        .css-36dktg {
+            height: 44px !important;
+            box-shadow: 0 0 0 1px #e0e0e0,0 2px 4px 0 rgba(0,0,0,0.07),0 1px 1.5px 0 rgba(0,0,0,0.05) !important;
+            border-radius: 8px !important;
+            padding: 0 16px !important;
+        }
+        .css-19d3ljg {
+            padding-bottom: 5px !important;
+        }
+        .css-bb03bc {
+            gap: 0 !important;
+        }
+   
+        #root .yuno-grid-email,
+        #root .Yuno-fieldset {
+            position: relative !important;
+        }
+        .Yuno-error-text-field__content {
+            position: absolute !important;
+            top: 15px !important;
+            right: 0 !important;
+            left: auto !important;
+            z-index: 10 !important;
+        }
+        .css-1o0l2di {
+            display: none !important;
+        }
+        @media (max-width: 700px) {
+            .Yuno-error-text-field__content {
+                top: 10px !important;
+            }
+        }
+        
+    </style>
+    <script>
+        function loading_spinner(on) {
+            var el = document.getElementsByClassName('spinner-wrapper')[0];
+            if (on) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        }
+        window.addEventListener(
+            "DOMContentLoaded",
+            () => {
+                loading_spinner(true);
+            }
+        );
+
+        window._paymentFormLoadFired = false;
+        window.addEventListener('load', function () {
+            window._paymentFormLoadFired = true;
+            tryShowPaymentForm();
+        });
+        function tryShowPaymentForm() {
+            if (document.body.classList.contains('payment-form-ready')) return;
+            var root = document.getElementById('root');
+            var form = root && root.querySelector('form');
+            var formReady = form && form.querySelector('input');
+            if (window._paymentFormLoadFired && formReady) {
+                document.body.classList.add('payment-form-ready');
+                loading_spinner(false);
+            }
+        }
+
+        window.addEventListener('yuno-sdk-ready', async () => {
+            const yuno = await Yuno.initialize("sandbox_gAAAAABpaRd9kteusFRHZcH9KgGZA1surYPvIczr_DM5HN9eo6DNqBUbw6vIgrAFD-PTOasBNwjSmZcmQzyFJlgHYEYPwrsklAcqCA0b0YYMIFMZXWL2Mb9itJegCbHrAENFIbH-YKKNlFomgeq4-z0w2zsEZJQY-QY801Gj4LGvDV9jOZHWokmjwIpwJtr7hMEYmWoZG6X9o-p8eBjfmKJBQ-9zSN9EkQrzTsDUQA-QMdyWPGBefXJyGOa6pw7-L4IjrrsD6zgC");
+            const checkoutSession = "3efe0a54-f19d-467f-b6a7-0b8cd4de0cec";
+            const vaulted_token = "3fba9910-e250-44cd-9543-c62bcbe228c5";
+
+            yuno.startCheckout({
+                checkoutSession: checkoutSession,
+                elementSelector: "#root",
+                countryCode: "US",
+                language: "en-US",
+                inputDesignType: "float-label-static",
+                showLoading: false,
+                issuersFormEnable: true,
+                showPaymentStatus: true,
+                showPayButton: true,
+                onLoading: (args) => {
+                },
+                renderMode: {
+                    type: "element",
+                    elementSelector: "#root",
+                },
+                card: {
+                    type: "extends",
+                    styles: `
+                        .Yuno-pan-secure-field,
+                        .Yuno-expiration-secure-field,
+                        .Yuno-cvv-secure-field {
+                            position: relative !important;
+                        }
+                        .Yuno-pan-secure-field .Yuno-fieldset__box,
+                        .Yuno-pan-secure-field .Yuno-input__content {
+                            border-bottom-left-radius: 0 !important;
+                            border-bottom-right-radius: 0 !important;
+                            border-top-left-radius: 8px !important;
+                            border-top-right-radius: 8px !important;
+                            box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+                            border: none !important;
+                        
+                        }
+                        .Yuno-expiration-secure-field .Yuno-fieldset__box,
+                        .Yuno-expiration-secure-field .Yuno-input__content {
+                            border-top-left-radius: 0 !important;
+                            border-bottom-left-radius: 8px !important;
+                            box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+                            border: none !important;
+                          
+                        }
+                        .Yuno-cvv-secure-field .Yuno-fieldset__box,
+                        .Yuno-cvv-secure-field .Yuno-input__content {
+                            border-top-right-radius: 0 !important;
+                            border-bottom-right-radius: 8px !important;
+                            box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+                            border: none !important;
+                          
+                        }
+                        .Yuno-error-text-field__content {
+                            position: absolute !important;
+                            top: -5px !important;
+                            right: 0 !important;
+                            left: auto !important;
+                            z-index: 10 !important;
+                            transform: translateY(-100%) !important;
+                        }
+                        /* Single shared error for card number + MM/YY + CVC: show "Required" only under card number */
+                        .Yuno-pan-secure-field .Yuno-error-text-field__content {
+                            font-size: 0 !important;
+                        }
+                     
+                       
+                        /* Hide duplicate errors under MM/YY and CVC */
+                        .Yuno-expiration-secure-field .Yuno-error-text-field__content,
+                        .Yuno-cvv-secure-field .Yuno-error-text-field__content {
+                            display: none !important;
+                        }
+                        /* Keep card number, MM/YY, CVC labels and placeholders from turning red on error */
+                        .Yuno-pan-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+                        .Yuno-pan-secure-field .Yuno-input__label.Yuno-input__label--error,
+                        .Yuno-expiration-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+                        .Yuno-expiration-secure-field .Yuno-input__label.Yuno-input__label--error,
+                        .Yuno-cvv-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+                        .Yuno-cvv-secure-field .Yuno-input__label.Yuno-input__label--error {
+                            color: #1A1A1AB2 !important;
+                        }
+                        .Yuno-pan-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder,
+                        .Yuno-expiration-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder,
+                        .Yuno-cvv-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder {
+                            color: #1A1A1A4D !important;
+                        }
+                            .css-1o0l2di {
+                            display: none !important;
+                        }
+                    `,
+                    cardSaveEnable: true,
+                    texts: {},
+                    cardNumberPlaceholder: "test1",
+                    hideCardholderName: false,
+                },
+                texts: {
+                    externalButtonSubtitle: "Or",
+                    orPayWith: "Or",
+                    payButton: "Subscribe",
+                    submitButton: "Subscribe",
+                },
+                async yunoCreatePayment(oneTimeToken, tokenWithInformation) {
+                    console.log('Token info:', tokenWithInformation);
+                    loading_spinner(true);
+
+                    const result = await fetch(
+                        "", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                method: "create_payment",
+                                one_time_token: oneTimeToken,
+                                checkout_session: checkoutSession,
+                                order: "9714087545755887"
+                            })
+                        }
+                    ).then(async r => {
+                        resp = await r.json();
+                        console.log(resp.status);
+
+                        if (resp.checkout && resp.checkout.sdk_action_required) {
+                            yuno.continuePayment()
+                        }
+
+                        switch (resp.status) {
+                            case "SUCCEEDED":
+                                {
+                                    location.href = "https://romanticalabs.com/en/payment-success/?hash=9714087545755887"
+                                    break;
+                                }
+                            default:
+                                {
+                                    location.href = "https://romanticalabs.com/en/payment-cancel/?hash=9714087545755887"
+                                    break;
+                                }
+                        }
+                        return resp;
+                    });
+
+                    yuno.continuePayment({
+                        showPaymentStatus: true
+                    });
+                },
+                yunoPaymentMethodSelected(data) {
+                    console.log("Payment method selected:", data);
+                },
+                yunoPaymentResult(data) {
+
+                    console.log("Payment result:", data);
+                    yuno.hideLoader();
+                },
+                yunoError(error, data) {
+                    console.error("An error occurred:", error);
+                    yuno.hideLoader();
+                    loading_spinner(false);
+                },
+            });
+
+            if (vaulted_token) {
+                await yuno.mountCheckout({
+                    paymentMethodType: "CARD",
+                    vaultedToken: vaulted_token,
+                });
+            } else {
+                await yuno.mountCheckout();
+            }
+
+         
+            setTimeout(function () {
+                yuno.startPayment();
+            }, 300);
+           
+            setTimeout(function () {
+                var el = document.querySelector('.Yuno-external-button__subtitle');
+                if (el) el.textContent = 'OR';
+            }, 600);
+          
+            function setPayButtonText() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                var btn = root.querySelector('button[type="submit"]') || root.querySelector('.Yuno-button');
+                if (btn && (btn.textContent || '').trim().toLowerCase() === 'pay') btn.textContent = 'Subscribe';
+            }
+            [700, 1500, 3000].forEach(function (ms) { setTimeout(setPayButtonText, ms); });
+    
+            function showCustomPaymentText() {
+                var root = document.getElementById('root');
+                var form = root && root.querySelector('form');
+                var textEl = document.querySelector('.custom-payment-text');
+                if (textEl && form && form.querySelector('input')) {
+                    textEl.classList.add('visible');
+                }
+            }
+            [800, 1600, 2500, 4000].forEach(function (ms) { setTimeout(showCustomPaymentText, ms); });
+            [500, 1000, 1500, 2500, 4000].forEach(function (ms) {
+                setTimeout(tryShowPaymentForm, ms);
+            });
+          
+            function moveEmailFirst() {
+                var root = document.getElementById('root');
+                if (!root) return false;
+                var form = root.querySelector('form');
+                var emailBlock = root.querySelector('.yuno-grid-email');
+                if (!form || !emailBlock) return false;
+                if (emailBlock.previousElementSibling === null) return true; // already first
+                form.insertBefore(emailBlock, form.firstChild);
+                return true;
+            }
+            [600, 1200, 2000, 3500].forEach(function (ms) {
+                setTimeout(function () {
+                    moveEmailFirst();
+                }, ms);
+            });
+           
+            var root = document.getElementById('root');
+            if (root && typeof MutationObserver !== 'undefined') {
+                var obs = new MutationObserver(function () {
+                    moveEmailFirst();
+                });
+                obs.observe(root, { childList: true, subtree: true });
+                setTimeout(function () { obs.disconnect(); }, 10000);
+            }
+
+          
+            var placeholders = {
+                cardHolderName: "Full name on card",
+                email: "email@example.com"
+            };
+            function setPlaceholders() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                var cardNumberInput = root.querySelector('input[name="number"]');
+                var nameInput = root.querySelector('input[name="cardHolderName"]');
+                var emailInput = root.querySelector('input[name="email"]');
+                if (cardNumberInput) cardNumberInput.placeholder = placeholders.cardNumber;
+                if (nameInput) nameInput.placeholder = placeholders.cardHolderName;
+                if (emailInput) emailInput.placeholder = placeholders.email;
+            }
+            [500, 1000, 1500, 2500].forEach(function (ms) {
+                setTimeout(setPlaceholders, ms);
+            });
+
+           
+            function insertPaymentMethodLabel() {
+                var root = document.getElementById('root');
+                if (!root) return false;
+                var emailBlock = root.querySelector('.yuno-grid-email');
+                if (!emailBlock || !emailBlock.parentNode) return false;
+                if (root.querySelector('.payment-method-label')) return true;
+                var next = emailBlock.nextElementSibling;
+                var label = document.createElement('p');
+                label.className = 'payment-method-label';
+                label.textContent = 'Payment method';
+                emailBlock.parentNode.insertBefore(label, next);
+                var cardInfoLabel = document.createElement('p');
+                cardInfoLabel.className = 'card-information-label';
+                cardInfoLabel.textContent = 'Card information';
+                emailBlock.parentNode.insertBefore(cardInfoLabel, next);
+                return true;
+            }
+            [700, 1400, 2600, 4000].forEach(function (ms) {
+                setTimeout(insertPaymentMethodLabel, ms);
+            });
+
+        });
+    </script>
+
+    <script defer src="https://sdk-web.y.uno/v1.5/main.js"></script>
+</head>
+
+
+<body class="body--secondary" style="background: #fff;">
+    <div class="spinner-wrapper">
+        <div class="darksoul-layout">
+            <div class="darksoul-grid">
+                <div class="item1"></div>
+                <div class="item2"></div>
+                <div class="item3"></div>
+                <div class="item4"></div>
+            </div>
+        </div>
+   
+    </div>
+    <div class="get-vip payment-complete">
+        <div class="header">
+            <div class="container">
+                <a class="header-back-arrow" onclick="window.Telegram.WebApp.close();" href="javascript:void(0);" aria-label="Back">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <div class="logo">
+
+                    <a href="https://flirtu.io/">
+
+                        <h1>Romantica Labs</h1>
+
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content premium-wrapper success-wrapper">
+            <div class="container">
+
+                <div class="custom-payment-wrapper">
+                    <div id="root"></div>
+                    <p class="custom-payment-text">
+
+                   By subscribing, you authorize Telegram Dating to charge you according to the terms until you cancel.</p>
+                </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ----------start header----------- -->
+
+
+
+
+    <!-- <div class="next-button-wrapper">
+        <div class="button button--blue">
+            <a onclick="window.Telegram.WebApp.close();" href="javascript://">Return to the site</a>
+           
+
+        </div>
+    </div> -->
+
+    <!-- --------------end content----------- -->
+</body>
+
+</html>
