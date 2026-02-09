@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RomanticaLabs</title>
+    <meta name="description" content="RomanticaLabs — safe local dating on Telegram. Connect with people nearby, flirt, and find serious relationships in a secure and anonymous environment. No registration needed and completely free!">
+    <meta name="keywords" content="dating, local dating, Telegram dating, safe dating, anonymous dating, no registration dating, dating chat, RomanticaLabs">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//du30cvw1mirjj.cloudfront.net/static/latinoheart/css/style.min.css">
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <!--    <script src="https://pay.google.com/gp/p/js/pay.js"></script>-->
+
+    <style>
+        .get-vip .header .container {
+            position: relative;
+        }
+
+        .get-vip .header .header-back-arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .header-back-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+        }
+
+        .header-back-arrow svg {
+            display: block;
+        }
+
+        .css-1hx1alg {
+            display: none;
+            ;
+        }
+
+        .css-1iqpic4 {
+            display: none;
+        }
+
+        .Yuno-modal-body__content {
+            color: red;
+        }
+
+        /* Примусово інлайновий режим: модальна оболонка Yuno веде себе як блок на сторінці */
+        [class*="Yuno-modal"] {
+            position: static !important;
+            inset: auto !important;
+            transform: none !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        /* Приховуємо тільки затемнений фон модалки */
+        [class*="Yuno-backdrop"],
+        [class*="yuno-backdrop"],
+        .Yuno-modal__overlay {
+            display: none !important;
+        }
+
+        .yuno-payment-list__container,
+        .yuno-payment-list__radiogroup,
+        .Yuno-more-indicator__sticky,
+        .Yuno-more-indicator__container,
+        .Yuno-radio-button__container {
+            display: none !important;
+        }
+
+        #root .payment-method-label,
+        #root .card-information-label,
+        #root .Yuno-input__label {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #1A1A1AB2 !important;
+            font-weight: 500 !important;
+            position: static !important;
+        }
+
+        #root .payment-method-label {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #1A1A1AE6 !important;
+        }
+
+        #root .card-information-label {
+            margin: 16px 0 8px;
+            margin-bottom: 0;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Лейбл всередині селекта як плейсхолдер */
+        #root .Yuno-fieldset__box:has(.Yuno-select__content),
+        #root .Yuno-fieldset__box:has(.Yuno-select__button-combo-box) {
+            position: relative !important;
+        }
+        #root .Yuno-select__label {
+            position: absolute !important;
+            left: 12px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin: 0 !important;
+            color: rgb(108, 111, 117) !important;
+            pointer-events: none !important;
+            font-size: 14px !important;
+        }
+        /* Коли є вибране значення — ховаємо лейбл (як плейсхолдер) */
+        #root .Yuno-fieldset__box.Yuno-fieldset__box--filled .Yuno-select__label,
+        #root .Yuno-fieldset__box[class*="--filled"] .Yuno-select__label,
+        #root .Yuno-fieldset__box.yuno-select-has-value .Yuno-select__label {
+            opacity: 0 !important;
+        }
+
+        #root .Yuno-external-button__subtitle {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            width: 100% !important;
+            color: #6b6b6b !important;
+        }
+
+        #root .Yuno-external-button__subtitle::before,
+        #root .Yuno-external-button__subtitle::after {
+            content: '';
+            flex: 1;
+            min-width: 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Google Pay button */
+
+        #root [class*="google-pay"],
+        #root [class*="GooglePay"],
+        #root [class*="gpay"],
+        #root [aria-label*="Google Pay"] {
+            height: 55px !important;
+            min-height: 55px !important;
+            font-size: 15px !important;
+            border-radius: 8px !important;
+        }
+
+        #root iframe[title*="Google Pay"] {
+            height: 55px !important;
+            border-radius: 2px !important;
+        }
+
+        .css-rtde4j {
+            margin-top: -17px;
+        }
+
+        .spinner-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .8);
+            display: none;
+            z-index: 9999
+        }
+
+        .spinner-wrapper.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner-wrapper .spinner-loading-text {
+            color: #fff;
+            font-size: 15px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        .darksoul-layout {
+            margin: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 100vh
+        }
+
+        .darksoul-grid {
+            margin: auto;
+            width: 80px;
+            height: 80px;
+            display: grid;
+            gap: 0px;
+            grid-template-columns: auto auto;
+            -webkit-animation: rotate 2s linear 0s infinite;
+            animation: rotate 2s linear 0s infinite
+        }
+
+        .item1 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #e64444
+        }
+
+        .item2 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #fff
+        }
+
+        .item3 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #fff
+        }
+
+        .item4 {
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+            background-color: #e64444
+        }
+
+        @-webkit-keyframes rotate {
+            0% {
+                rotate: 0deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+            50% {
+                rotate: 100deg;
+                -webkit-transform: scale(0.4);
+                transform: scale(0.4)
+            }
+            100% {
+                rotate: 360deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                rotate: 0deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+            50% {
+                rotate: 100deg;
+                -webkit-transform: scale(0.4);
+                transform: scale(0.4)
+            }
+            100% {
+                rotate: 360deg;
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6)
+            }
+        }
+
+        .darksoul-loader-h {
+            margin: auto;
+            margin-left: 5px
+        }
+
+        .custom-payment-wrapper {
+            width: 380px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        /* Product summary — subscribe title + price */
+
+        .product-summary {
+            text-align: center;
+            padding: 0 0 10px;
+        }
+
+        .product-summary__title {
+            color: #6b6b6b;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .product-summary__price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .product-summary__amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .product-summary__interval {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b6b6b;
+        }
+
+        .payment-form-header,
+        #root {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.payment-form-ready .payment-form-header,
+        body.payment-form-ready #root {
+            opacity: 1;
+        }
+
+        #root button[type="submit"],
+        #root .Yuno-button {
+            height: 55px !important;
+            min-height: 55px !important;
+            background-color: rgb(0, 116, 212) !important;
+            color: rgb(255, 255, 255) !important;
+            margin-top: 20px !important;
+        }
+
+        .custom-payment-text {
+            width: 100%;
+            color: #1A1A1AB2;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .custom-payment-text.visible {
+            opacity: 1;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .css-1lcp52 {
+            padding: 0 !important;
+            display: block !important;
+            height: auto !important;
+            border: none !important;
+        }
+
+        .css-1qmtg5w {
+            border: none !important;
+        }
+
+        .css-36dktg {
+            height: 55px !important;
+            border: 1px solid #e0e0e0 !important;
+            box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+            -webkit-box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+            border-radius: 8px !important;
+            padding: 0 16px !important;
+        }
+
+        .css-19d3ljg {
+            padding-bottom: 5px !important;
+        }
+
+        .css-bb03bc {
+            gap: 0 !important;
+        }
+
+        #root .yuno-grid-email,
+        #root .Yuno-fieldset {
+            position: relative !important;
+        }
+
+        .css-1o0l2di {
+            display: none !important;
+        }
+
+        .gpay-button.black.pay.en {
+            background-size: 130px !important;
+        }
+
+        .header-back-button {
+            display: flex;
+        }
+
+        .header-back-button h1 {
+            color: #1A1A1AE6;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .header-back-button-content {
+            display: flex;
+        }
+
+        .header-back-button-link {
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .header-back-button-icon {
+            opacity: 0.6;
+        }
+
+        .header-back-button-icon-wrapper {
+            box-shadow: 0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+            width: 28px;
+            height: 28px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .header-back-button-icon-wrapper svg {
+            width: 12px;
+            fill: #1A1A1AB2 !important;
+        }
+        .css-ov1ktg {
+            flex-direction: column;
+        }
+       
+        .css-19d3ljg,
+        .css-wy7k62 {
+            border-radius: 8px !important;
+        }
+        .css-1barwc0 {
+            box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+            -webkit-box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+
+        }
+        .css-se3yeb {
+           padding-top: 15px !important;
+           padding-bottom: 5px !important; 
+        }
+        .css-1ul6mtu {
+            margin-top: 0 !important;
+        }
+        /* Хеш css-* може змінитись після оновлення SDK; якщо не працює — перевір в DevTools актуальний клас */
+        #root .css-1l8ylpq,
+        #root [class*="css-1l8ylpq"] {
+            margin-top: 0 !important;
+        }
+
+
+        @media (max-width: 450px) {
+            .custom-payment-wrapper {
+                width: 360px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .custom-payment-wrapper {
+                width: 340px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-height: 750px) {
+            .css-rhlrep {
+                margin-bottom: 0 !important;
+            }
+            #root .payment-method-label {
+                margin-top: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            .header-back-button-link {
+                margin-bottom: 15px !important;
+            }
+            .product-summary {
+                padding-bottom: 0px !important;
+            }
+            .product-summary__price {
+                padding-top: 0;
+            }
+            .custom-payment-wrapper {
+                margin-top: 15px !important;
+            }
+        }
+
+        @media (max-height: 650px) {
+            #root .payment-method-label {
+                margin-top: 10px !important;
+                margin-bottom: 3px !important;
+            }
+            .header-back-button-link {
+                margin-bottom: 5px !important;
+            }
+            .product-summary {
+                padding-bottom: 5px !important;
+            }
+            .product-summary__price {
+                padding-top: 0;
+            }
+            .custom-payment-wrapper {
+                margin-top: 10px !important;
+            }
+        }
+    
+    </style>
+
+    <script>
+        function loading_spinner(on) {
+            var el = document.getElementsByClassName('spinner-wrapper')[0];
+            if (on) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        }
+
+        window.addEventListener(
+            "DOMContentLoaded",
+            () => {
+                loading_spinner(true);
+            }
+        );
+
+        window._paymentFormLoadFired = false;
+        window.addEventListener('load', function() {
+            window._paymentFormLoadFired = true;
+            tryShowPaymentForm();
+        });
+
+        function tryShowPaymentForm() {
+            if (document.body.classList.contains('payment-form-ready')) return;
+            var root = document.getElementById('root');
+            var form = root && root.querySelector('form');
+            var formReady = form && form.querySelector('input');
+            if (window._paymentFormLoadFired && formReady) {
+                document.body.classList.add('payment-form-ready');
+                loading_spinner(false);
+            }
+        }
+
+        window.addEventListener('yuno-sdk-ready', async () => {
+            const yuno = await Yuno.initialize("sandbox_gAAAAABpaRd9kteusFRHZcH9KgGZA1surYPvIczr_DM5HN9eo6DNqBUbw6vIgrAFD-PTOasBNwjSmZcmQzyFJlgHYEYPwrsklAcqCA0b0YYMIFMZXWL2Mb9itJegCbHrAENFIbH-YKKNlFomgeq4-z0w2zsEZJQY-QY801Gj4LGvDV9jOZHWokmjwIpwJtr7hMEYmWoZG6X9o-p8eBjfmKJBQ-9zSN9EkQrzTsDUQA-QMdyWPGBefXJyGOa6pw7-L4IjrrsD6zgC");
+            const customerSession = "a8129d1d-4c86-47e9-b5aa-9257baed2d23";
+
+            yuno.mountEnrollmentLite({
+                customerSession: customerSession,
+                elementSelector: "#root",
+                countryCode: 'US',
+                showLoading: false,
+                inputDesignType: "float-label-static",
+                language: 'en',
+                onLoading: (args) => {
+                    loading_spinner(false);
+                },
+                renderMode: {
+                    type: "element",
+                    elementSelector: "#root",
+                },
+                card: {
+                    type: "extends",
+                    styles: `
+							.Yuno-pan-secure-field,
+							.Yuno-expiration-secure-field,
+							.Yuno-cvv-secure-field {
+								position: relative !important;
+							}
+							.Yuno-pan-secure-field .Yuno-fieldset__box,
+							.Yuno-pan-secure-field .Yuno-input__content {
+								border-bottom-left-radius: 0 !important;
+								border-bottom-right-radius: 0 !important;
+								border-top-left-radius: 8px !important;
+								border-top-right-radius: 8px !important;
+								box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+								border: none !important;
+
+							}
+							.Yuno-expiration-secure-field .Yuno-fieldset__box,
+							.Yuno-expiration-secure-field .Yuno-input__content {
+								border-top-left-radius: 0 !important;
+								border-bottom-left-radius: 8px !important;
+								box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+								border: none !important;
+
+							}
+							.Yuno-cvv-secure-field .Yuno-fieldset__box,
+							.Yuno-cvv-secure-field .Yuno-input__content {
+								border-top-right-radius: 0 !important;
+								border-bottom-right-radius: 8px !important;
+								box-shadow: 0 0 0 1px #e0e0e0, 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 1.5px 0 rgba(0, 0, 0, 0.05) !important;
+								border: none !important;
+
+							}
+							.Yuno-error-text-field__content {
+							position: relative !important;
+							top: -5px !important;
+
+							}
+							/* Single shared error for card number + MM/YY + CVC: show "Required" only under card number */
+							.Yuno-pan-secure-field .Yuno-error-text-field__content {
+								font-size: 0 !important;
+							}
+
+
+							/* Hide duplicate errors under MM/YY and CVC */
+							// .Yuno-expiration-secure-field .Yuno-error-text-field__content,
+							// .Yuno-cvv-secure-field .Yuno-error-text-field__content {
+							//     display: none !important;
+							// }
+							/* Keep card number, MM/YY, CVC labels and placeholders from turning red on error */
+							.Yuno-pan-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+							.Yuno-pan-secure-field .Yuno-input__label.Yuno-input__label--error,
+							.Yuno-expiration-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+							.Yuno-expiration-secure-field .Yuno-input__label.Yuno-input__label--error,
+							.Yuno-cvv-secure-field .Yuno-fieldset__box--error .Yuno-input__label,
+							.Yuno-cvv-secure-field .Yuno-input__label.Yuno-input__label--error {
+								color: #1A1A1AB2 !important;
+							}
+							.Yuno-pan-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder,
+							.Yuno-expiration-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder,
+							.Yuno-cvv-secure-field .Yuno-fieldset__box--error .Yuno-input__base::placeholder {
+								color: #1A1A1A4D !important;
+							}
+								.css-1o0l2di {
+								display: none !important;
+							}
+							`,
+                    cardSaveEnable: true,
+                    texts: {
+                        externalButtonSubtitle: "Or",
+                        orPayWith: "Or",
+                        payButton: "Subscribe",
+                        submitButton: "Subscribe",
+                    },
+                    cardNumberPlaceholder: "Enter card number",
+                    hideCardholderName: false,
+                },
+                yunoEnrollmentStatus: async (enrollmentData) => {
+                    loading_spinner(true);
+
+                    await fetch(
+                        "", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                enrollment_data: enrollmentData,
+                                customer_session: customerSession,
+                                method: "create_subscription",
+                                order: "57924878032598767"
+                            })
+                        }).then(async r => {
+                        create_subscription_response = await r.json();
+
+                        if (
+                            create_subscription_response.checkout &&
+                            create_subscription_response.checkout.sdk_action_required) {
+                            yuno.continuePayment()
+                        }
+
+                        return create_subscription_response;
+                    }).then(
+                        create_subscription_response => {
+
+                            return new Promise((resolve, reject) => {
+                                let start_time = new Date();
+
+                                let timer_handler = setInterval(() => {
+                                    if ((new Date()) - start_time > 10 * 1000) {
+                                        clearInterval(timer_handler);
+                                        reject();
+                                        return;
+                                    }
+
+                                    fetch("", {
+                                            method: "POST",
+                                            body: JSON.stringify({
+                                                create_subscription_response: create_subscription_response,
+                                                method: "check_subscription_activation",
+                                            })
+                                        })
+                                        .then(async r => {
+                                            const resp = await r.json();
+
+                                            if (resp.status === "ACTIVE") {
+                                                clearInterval(timer_handler);
+
+                                                resolve(resp);
+
+                                            }
+                                        })
+                                        .catch(err => {
+                                            clearInterval(timer_handler);
+                                            reject(err);
+                                        });
+                                }, 1000);
+                            });
+                        }
+                    ).then(
+                        r => {
+                            location.href = "https://romanticalabs.com/en/payment-success/?hash=57924878032598767"
+                        },
+                        r => {
+                            location.href = "https://romanticalabs.com/en/payment-cancel/?hash=57924878032598767"
+                        }
+                    );
+
+                },
+                yunoError: (error) => {
+                    yuno.hideLoader();
+                    loading_spinner(false);
+                }
+            });
+
+            setTimeout(function() {
+                yuno.startPayment();
+            }, 300);
+
+            setTimeout(function() {
+                var el = document.querySelector('.Yuno-external-button__subtitle');
+                if (el) el.textContent = 'OR';
+            }, 600);
+
+            function setPayButtonText() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                var btn = root.querySelector('button[type="submit"]') || root.querySelector('.Yuno-button');
+                if (btn && (btn.textContent || '').trim().toLowerCase() === 'pay') btn.textContent = 'Subscribe';
+            }
+
+            [700, 1500, 3000].forEach(function(ms) {
+                setTimeout(setPayButtonText, ms);
+            });
+
+            function showCustomPaymentText() {
+                var root = document.getElementById('root');
+                var form = root && root.querySelector('form');
+                var textEl = document.querySelector('.custom-payment-text');
+                if (textEl && form && form.querySelector('input')) {
+                    textEl.classList.add('visible');
+                }
+            }
+
+            [800, 1600, 2500, 4000].forEach(function(ms) {
+                setTimeout(showCustomPaymentText, ms);
+            });
+            [500, 1000, 1500, 2500, 4000].forEach(function(ms) {
+                setTimeout(tryShowPaymentForm, ms);
+            });
+
+            function moveEmailFirst() {
+                var root = document.getElementById('root');
+                if (!root) return false;
+                var form = root.querySelector('form');
+                var emailBlock = root.querySelector('.yuno-grid-email');
+                if (!form || !emailBlock) return false;
+                if (emailBlock.previousElementSibling === null) return true;
+                form.insertBefore(emailBlock, form.firstChild);
+                return true;
+            }
+
+            [600, 1200, 2000, 3500].forEach(function(ms) {
+                setTimeout(function() {
+                    moveEmailFirst();
+                }, ms);
+            });
+
+            var root = document.getElementById('root');
+            if (root && typeof MutationObserver !== 'undefined') {
+                var obs = new MutationObserver(function() {
+                    moveEmailFirst();
+                });
+                obs.observe(root, {
+                    childList: true,
+                    subtree: true
+                });
+                setTimeout(function() {
+                    obs.disconnect();
+                }, 10000);
+            }
+
+
+            var placeholders = {
+                cardHolderName: "Full name on card",
+                email: "email@example.com"
+            };
+
+            function setPlaceholders() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                var cardNumberInput = root.querySelector('input[name="number"]');
+                var nameInput = root.querySelector('input[name="cardHolderName"]');
+                var emailInput = root.querySelector('input[name="email"]');
+                if (cardNumberInput) cardNumberInput.placeholder = placeholders.cardNumber;
+                if (nameInput) nameInput.placeholder = placeholders.cardHolderName;
+                if (emailInput) emailInput.placeholder = placeholders.email;
+            }
+
+            [500, 1000, 1500, 2500].forEach(function(ms) {
+                setTimeout(setPlaceholders, ms);
+            });
+
+
+            function insertPaymentMethodLabel() {
+                var root = document.getElementById('root');
+                if (!root) return false;
+                var emailBlock = root.querySelector('.yuno-grid-email');
+                if (!emailBlock || !emailBlock.parentNode) return false;
+                if (root.querySelector('.payment-method-label')) return true;
+                var next = emailBlock.nextElementSibling;
+                var label = document.createElement('p');
+                label.className = 'payment-method-label';
+                label.textContent = 'Payment method';
+                emailBlock.parentNode.insertBefore(label, next);
+                var cardInfoLabel = document.createElement('p');
+                cardInfoLabel.className = 'card-information-label';
+                cardInfoLabel.textContent = 'Card information';
+                emailBlock.parentNode.insertBefore(cardInfoLabel, next);
+                return true;
+            }
+
+            [700, 1400, 2600, 4000].forEach(function(ms) {
+                setTimeout(insertPaymentMethodLabel, ms);
+            });
+
+            function setSelectDefaultOptionFromLabel() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                var boxes = root.querySelectorAll('.Yuno-fieldset__box .Yuno-select__label');
+                boxes.forEach(function(labelEl) {
+                    var box = labelEl.closest('.Yuno-fieldset__box');
+                    if (!box) return;
+                    var select = box.querySelector('select');
+                    if (!select) return;
+                    var labelText = (labelEl.textContent || '').trim();
+                    if (!labelText) return;
+                    var existing = select.querySelector('option[value=""]');
+                    if (existing) return;
+                    var opt = document.createElement('option');
+                    opt.value = '';
+                    opt.disabled = true;
+                    opt.selected = true;
+                    opt.textContent = labelText;
+                    select.insertBefore(opt, select.firstChild);
+                    select.addEventListener('change', function syncSelectLabelVisibility() {
+                        if (select.value !== '') box.classList.add('yuno-select-has-value');
+                        else box.classList.remove('yuno-select-has-value');
+                    });
+                    if (select.value !== '') box.classList.add('yuno-select-has-value');
+                });
+            }
+
+            function syncSelectLabelVisibility() {
+                var root = document.getElementById('root');
+                if (!root) return;
+                root.querySelectorAll('.Yuno-fieldset__box').forEach(function(box) {
+                    if (!box.querySelector('.Yuno-select__label')) return;
+                    var labelEl = box.querySelector('.Yuno-select__label');
+                    var labelText = (labelEl && labelEl.textContent || '').trim();
+                    var select = box.querySelector('select');
+                    if (select) {
+                        if (select.value !== '') box.classList.add('yuno-select-has-value');
+                        else box.classList.remove('yuno-select-has-value');
+                        return;
+                    }
+                    var input = box.querySelector('.Yuno-select__input');
+                    var button = box.querySelector('.Yuno-select__button-combo-box');
+                    var displayEl = input || button;
+                    if (!displayEl || !labelText) return;
+                    var displayText = (displayEl.value || displayEl.textContent || '').trim();
+                    if (displayText !== '' && displayText !== labelText) box.classList.add('yuno-select-has-value');
+                    else box.classList.remove('yuno-select-has-value');
+                });
+            }
+
+            [600, 1200, 2000, 3500].forEach(function(ms) {
+                setTimeout(setSelectDefaultOptionFromLabel, ms);
+            });
+            [800, 1500, 2500, 4000, 6000].forEach(function(ms) {
+                setTimeout(syncSelectLabelVisibility, ms);
+            });
+
+            var syncSelectLabelRaf;
+            function scheduleSyncSelectLabel() {
+                if (syncSelectLabelRaf) cancelAnimationFrame(syncSelectLabelRaf);
+                syncSelectLabelRaf = requestAnimationFrame(function() {
+                    syncSelectLabelRaf = 0;
+                    syncSelectLabelVisibility();
+                    setTimeout(syncSelectLabelVisibility, 0);
+                });
+            }
+            var rootEl = document.getElementById('root');
+            if (rootEl && typeof MutationObserver !== 'undefined') {
+                var obs = new MutationObserver(scheduleSyncSelectLabel);
+                obs.observe(rootEl, { childList: true, subtree: true, characterData: true });
+                setTimeout(function() { obs.disconnect(); }, 30000);
+            }
+            rootEl && rootEl.addEventListener('click', scheduleSyncSelectLabel, true);
+            document.body.addEventListener('click', scheduleSyncSelectLabel, true);
+
+        });
+    </script>
+
+    <script defer src="https://sdk-web.y.uno/v1.5/main.js"></script>
+</head>
+
+
+<body class="body--secondary" style="background: #fff;">
+    <div class="spinner-wrapper">
+        <div class="darksoul-layout">
+            <div class="darksoul-grid">
+                <div class="item1"></div>
+                <div class="item2"></div>
+                <div class="item3"></div>
+                <div class="item4"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="get-vip payment-complete">
+
+        <div class="content premium-wrapper success-wrapper">
+            <div class="container">
+
+                <div class="custom-payment-wrapper">
+                    <div class="payment-form-header">
+                        <header>
+                            <div>
+                                <a class="header-back-button-link" href="https://romanticalabs.com/en/payment-cancel/?hash=57924878032598767">
+                                    <div>
+                                        <div class="header-back-button">
+                                            <div class="header-back-button-icon">
+                                                <svg width="12" height="12" viewBox="0 0 16 16">
+                                                <path d="M3.417 7H15a1 1 0 0 1 0 2H3.417l4.591 4.591a1 1 0 0 1-1.415 1.416l-6.3-6.3a1 1 0 0 1 0-1.414l6.3-6.3A1 1 0 0 1 8.008 2.41z" fill-rule="evenodd"></path>
+                                            </svg>
+                                            </div>
+
+                                            <div>
+                                                <div class="header-back-button-content">
+                                                    <div class="header-back-button-icon-wrapper">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9977 8.19089C15.6092 7.64898 16.0002 6.87952 16.0002 6V5.90012C16.0002 5.58415 15.9687 5.26896 15.9061 4.95925L15.2757 1.83964L15.2729 1.82792C15.1493 1.3036 14.9237 0.814761 14.4989 0.46826C14.0702 0.118638 13.5447 2.32458e-05 13 2.20537e-05L3 0C2.45536 0 1.92982 0.118541 1.50106 0.46812C1.0761 0.814602 0.850422 1.30347 0.726786 1.8279L0.72402 1.83963L0.0936206 4.95927C0.0310375 5.26897 -0.000488281 5.58414 -0.000488281 5.90011V6C-0.000488281 6.87964 0.390631 7.64918 1.00228 8.19109C1.00077 8.21053 1 8.23017 1 8.25V13.75C1 14.9926 2.00736 16 3.25 16H12.75C13.9926 16 15 14.9926 15 13.75V8.25C15 8.2301 14.9992 8.21039 14.9977 8.19089ZM1.5639 5.25637L2.18938 2.16112C2.27008 1.82536 2.37436 1.69148 2.44893 1.63068C2.5205 1.57233 2.66423 1.5 3 1.5L5.13914 1.5L4.91916 5.83281V5.85184C4.91916 6.75985 4.16621 7.5185 3.20933 7.5185C2.20733 7.5185 1.49951 6.78036 1.49951 6V5.90011C1.49951 5.68392 1.52108 5.46828 1.5639 5.25637ZM6.41924 5.86925L6.64107 1.50001L9.35867 1.50001L9.5805 5.86926C9.5716 6.81148 8.84083 7.51853 7.99982 7.51853C7.15886 7.51853 6.42814 6.81151 6.41924 5.86925ZM11.0806 5.83283L10.8606 1.50002L13 1.50002C13.3356 1.50002 13.4793 1.57235 13.5508 1.6307C13.6254 1.6915 13.7297 1.8254 13.8103 2.16111L14.4358 5.25637C14.4787 5.46827 14.5002 5.68393 14.5002 5.90012V6C14.5002 6.78037 13.7924 7.51853 12.7904 7.51853C11.8335 7.51853 11.0806 6.75987 11.0806 5.85186V5.83283ZM12.7904 9.01853C11.8162 9.01853 10.9371 8.58803 10.3463 7.90493C9.78443 8.58417 8.94686 9.01853 7.99982 9.01853C7.05278 9.01853 6.21526 8.58417 5.65344 7.90494C5.06261 8.58802 4.18353 9.0185 3.20933 9.0185C2.96731 9.0185 2.72967 8.99264 2.5 8.94337V11.5H13.5V8.94334C13.2703 8.99264 13.0325 9.01853 12.7904 9.01853ZM2.5 13.75V13H13.5V13.75C13.5 14.1642 13.1642 14.5 12.75 14.5H3.25C2.83579 14.5 2.5 14.1642 2.5 13.75Z" fill=""></path>
+                                                    </svg>
+                                                    </div>
+                                                    <h1>Telegram Dating</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </header>
+
+                        <div class="product-summary">
+                            <div class="product-summary__title">Subscribe to 👑 VIP</div>
+                            <div class="product-summary__price">
+                                <span class="product-summary__amount">€19.99</span>
+                                <span class="product-summary__interval">
+                            
+                            per month
+                            
+                            
+                            
+                            </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="root"></div>
+                    <p class="custom-payment-text">
+
+                        By subscribing, you authorize Telegram Dating to charge you according to the terms until you cancel.</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- --------------end content----------- -->
+</body>
+
+</html>
